@@ -27,6 +27,13 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@RequestMapping("/welcome")
+	public String toWelcome(HttpServletRequest httpServletRequest,
+			HttpServletResponse httpServletResponse) {
+		
+		return "Welcome User.";
+	}
+	
 	@RequestMapping(value = "v2.0/new/{teamname}", method = RequestMethod.GET)
 	@ResponseBody public JSONPObject foo5(@PathVariable String teamname,String callback, HttpServletRequest request) {
 
