@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Spring Framework Assignment - Admin Page</title>
+
+<link rel="stylesheet" th:href="@{/static/css/style.css}" />
+
+<script th:src="@{/static/js/form.js}"></script>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+	function jumpToAdmin() {
+		
+		location.href = "/user/jumpToAdminPage";
+	}
+	
+	function logout() {
+		
+		location.href = "/user/logout";
+	}
+</script>
+
+</head>
+<body>
+
+	<div class="form" style="position: relative">
+
+		<div class="form_register" style="position: absolute">
+			<div class="form_item">
+				<input type="button" onclick="logout()" style="margin-left: 10px; background-color: rgba(244, 22, 7, 0.7); color: aliceblue; height: 45px; font-size: 20px; cursor: pointer; margin-top: 20px;"
+					value="Logout" />
+				<input type="button"
+					style="margin-left: 10px; background-color: rgba(244, 22, 7, 0.7); color: aliceblue; height: 45px; font-size: 20px; cursor: pointer; margin-top: 20px;"
+					value="Account Update" />
+				<input type="button"
+					style="margin-left: 10px; background-color: rgba(244, 22, 7, 0.7); color: aliceblue; height: 45px; font-size: 20px; cursor: pointer; margin-top: 20px;"
+					value="Tutorials" />
+				<input type="button" onclick="jumpToAdmin()"
+					style="margin-left: 10px; margin-right: 10px; background-color: rgba(244, 22, 7, 0.7); color: aliceblue; height: 45px; font-size: 20px; cursor: pointer; margin-top: 20px;"
+					value="Admin" />
+			</div>
+			
+			<h1 th:text="${user_info}" style="color:white;text-align: center;"/>
+		</div>
+
+	</div>
+</body>
+</html>

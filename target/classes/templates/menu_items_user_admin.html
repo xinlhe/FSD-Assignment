@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Spring Framework Assignment - Admin User Tutorials Page</title>
+
+<link rel="stylesheet" th:href="@{/static/css/style.css}" />
+
+<script th:src="@{/static/js/form.js}"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+</head>
+<body>
+	
+	<br/><br/><br/><br/><br/>
+	<div class="form" style="position: relative">
+		<div style="color:white"><h5 th:text="${name}" style="font-color:white"/>This page is visible and accessible only to the logged-in user who is super-admin.</div>
+	</div>
+</body>
+</html>

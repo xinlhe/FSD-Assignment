@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Spring Framework Assignment - Account Update Page</title>
+
+<link rel="stylesheet" th:href="@{/static/css/style.css}" />
+
+<script th:src="@{/static/js/form.js}"></script>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+	function accountUpdate() {
+		
+		var password = $("#password").val();
+		var repassword = $("#repassword").val();
+		if(repassword == password) {
+			
+			$("#accountUpdateForm").submit();
+		}
+		else {
+			
+			alert("Error: Password is not match Repassword!!!");
+		}
+	}
+</script>
+
+</head>
+<body>
+
+	<div class="form" style="position: relative">
+
+		<div class="form_register" style="position: absolute;height: 600px;">
+			<form id="accountUpdateForm" action="/user/accountUpdate" style="padding: 0px 40px;">
+				<h1>Account Update Form</h1>
+				<input type="hidden" name="id" id="id" th:value="${userinfo.id}" />
+				<div class="form_item">
+					<label for="name" style="width: 120px;">Name：</label> <input type="text" name="name" th:value="${userinfo.name}"
+						id="name" placeholder="please enter name here."
+						required="required" />
+				</div>
+				<div class="form_item">
+					<label for="email" style="width: 120px;">Email：</label> <input type="email" name="email" th:value="${userinfo.email}"
+						id="email" placeholder="please enter email here."
+						required="required" />
+				</div>
+				<div class="form_item">
+					<label for="username" style="width: 120px;">Username：</label> <input type="text" th:value="${userinfo.username}"
+						id="username" name="username"
+						placeholder="please enter username here." required="required" />
+				</div>
+				<div class="form_item">
+					<label for="password" style="width: 120px;">Password：</label> <input type="password" th:value="${userinfo.password}"
+						id="password" name="password"
+						placeholder="please enter password here." required="required" />
+				</div>
+				<div class="form_item">
+					<label for="password" style="width: 120px;">Re-Password：</label> <input type="password"
+						id="repassword" name="repassword"
+						placeholder="please enter password here." required="required" />
+				</div>
+				<div class="form_item">
+					<label for="CAPTCHA" style="width: 120px;">CAPTCHA：</label> <input type="text"
+						name="vrifyCode" id="vrifyCode"
+						placeholder="please enter CAPTCHA here." required="required" />
+					<img alt="验证码" style="height: 36px; padding-left: 5px;"
+						onclick="this.src='/defaultKaptcha?d='+new Date()*1"
+						src="/defaultKaptcha" />
+				</div>
+				
+				<h3 th:text="${info}" style="font-color:white"/>
+				
+				
+				<div class="form_item">
+					<input type="button" onclick="accountUpdate();" style="margin-left: 10px; background-color: rgba(244, 22, 7, 0.7); color: aliceblue; height: 45px; font-size: 20px; cursor: pointer; margin-top: 20px;" value="Account Update" />
+					<input type="reset"
+						style="margin-left: 10px; background-color: rgba(244, 22, 7, 0.7); color: aliceblue; height: 45px; font-size: 20px; cursor: pointer; margin-top: 20px;"
+						value="Reset" />
+				</div>
+				<div class="info">
+					Already have an account? Click on the
+					<span class="switch login_Btn">
+						<a href="/user/tologin">
+							Login
+						</a>
+					</span>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</body>
+
+<script>
+
+</script>
+</html>
